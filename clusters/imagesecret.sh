@@ -1,0 +1,1 @@
+kubectl create secret docker-registry imagesecret --docker-username=XXX --docker-password=xxx --docker-server='registry.cn-beijing.aliyuncs.com'

@@ -1,0 +1,19 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: my-app-3
+  namespace: default
+spec:
+  components:
+    - name: app-3
+      type: webservice
+      properties:
+        image: nginx:1.15-alpine
+        ports:
+         - port: 80
+           expose: true
+           name: tcp-80
+      traits:
+        - type: scaler
+          properties:
+            replicas: 3

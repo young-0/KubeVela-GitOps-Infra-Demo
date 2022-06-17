@@ -1,0 +1,19 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: my-app-2
+  namespace: default
+spec:
+  components:
+    - name: app-2
+      type: webservice
+      properties:
+        image: registry.cn-beijing.aliyuncs.com/zaq1/nginx2:dev-abc-3 # {"$imagepolicy": "default:apps2"}
+        ports:
+          - port: 80
+            expose: true
+            name: tcp-80
+      traits:
+        - type: scaler
+          properties:
+            replicas: 2
